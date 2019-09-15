@@ -50,7 +50,7 @@ export default function Index() {
 
   return (
     <Layout>
-      <PageLayout title="Contact Me">
+      <PageLayout title="Me Contacter">
         <form
           name="contact"
           method="post"
@@ -74,7 +74,7 @@ export default function Index() {
             margin="normal"
             required
             fullWidth
-            label="name"
+            label="Nom"
             autoComplete="name"
             value={formValue.name || ""}
             onChange={handleChange}
@@ -86,7 +86,7 @@ export default function Index() {
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label="Email"
             autoComplete="email"
             type="email"
             value={formValue.email || ""}
@@ -113,7 +113,7 @@ export default function Index() {
             className={classes.submit}
             size="large"
           >
-            Submit
+            Envoyer
           </Button>
         </form>
       </PageLayout>

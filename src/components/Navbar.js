@@ -64,7 +64,7 @@ function Navbar() {
           </Typography>
 
           <Button size="large" color="inherit" component={AdapterLink} to="/">
-            Home
+            Accueil
           </Button>
           <Button
             size="large"

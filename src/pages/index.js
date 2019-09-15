@@ -36,7 +36,7 @@ export default function() {
             color="textPrimary"
             gutterBottom
           >
-            Hi, I'm a Starter App
+            Hey!
           </Typography>
           <Typography
             variant="h5"
@@ -44,9 +44,8 @@ export default function() {
             color="textSecondary"
             paragraph
           >
-            Something short and leading about the collection below—its contents,
-            the creator, etc. Make it short and sweet, but not too short so
-            folks don&apos;t simply skip over it entirely.
+            Mon nom est Bastien Martinelli. Je suis développeur front-end,
+            passionné de JavaScript, Vétéran React.
           </Typography>
           <Grid container justify="center">
             <img className={classes.img} src={webDev} alt="web-dev" />
@@ -59,7 +58,7 @@ export default function() {
                 component={AdapterLink}
                 to="/blog"
               >
-                Blog Posts
+                Blog
               </Button>
             </Grid>
             <Grid item>
@@ -69,7 +68,7 @@ export default function() {
                 component={AdapterLink}
                 to="/contact"
               >
-                Contact Me
+                Me contacter
               </Button>
             </Grid>
           </Grid>

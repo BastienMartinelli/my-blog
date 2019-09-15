@@ -34,7 +34,7 @@ const TagsPage = ({
       <Helmet title={`Tags | ${title}`} />
       <PageLayout title="Tags">
         <Typography className={classes.title} component="h1" variant="h4">
-          All Tags
+          Tous les tags
         </Typography>
         {group.map(tag => (
           <Chip

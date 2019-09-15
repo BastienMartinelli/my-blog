@@ -50,7 +50,7 @@ function BlogItem({ title, description, to, date }) {
               {description}
             </Typography>
             <Typography variant="subtitle1" color="primary">
-              Continue reading...
+              Continuer...
             </Typography>
           </CardContent>
         </div>

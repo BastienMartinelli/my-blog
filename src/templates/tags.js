@@ -26,7 +26,7 @@ function TagRoute(props) {
   const totalCount = props.data.allMarkdownRemark.totalCount;
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
-  } tagged with “${tag}”`;
+  } avec le tag “${tag}”`;
 
   return (
     <Layout>
@@ -51,7 +51,7 @@ function TagRoute(props) {
           component={AdapterLink}
           to="/tags/"
         >
-          Browse all tags
+          Voir tous les tags
         </Button>
       </PageLayout>
     </Layout>

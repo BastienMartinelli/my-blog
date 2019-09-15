@@ -19,7 +19,7 @@ export default function BlogIndexPage() {
 
   return (
     <Layout>
-      <PageLayout title="Latest Stories" noCard>
+      <PageLayout title="Derniers Posts" noCard>
         <BlogRoll />
       </PageLayout>
     </Layout>

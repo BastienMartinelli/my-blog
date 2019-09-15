@@ -25,10 +25,10 @@ function ThanksPage() {
             align="center"
             className={classes.title}
           >
-            Thank you!
+            Merci !
           </Typography>
           <Typography color="textSecondary" variant="h5" align="center">
-            Your message has been sent successfully :)
+            Votre message a été envoyé avec succès :)
           </Typography>
         </PageLayout>
       </Container>

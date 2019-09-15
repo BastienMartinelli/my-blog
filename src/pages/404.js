@@ -32,7 +32,7 @@ function NotFoundPage() {
               Not Found
             </Typography>
             <Typography color="textSecondary" variant="h5" align="center">
-              You just hit a route that doesn&#39;t exist... the sadness.
+              Vous venez d'emprunter une route qui semble de pas exister :o
             </Typography>
           </Paper>
         </Grid>
