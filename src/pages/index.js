@@ -45,7 +45,8 @@ export default function() {
             paragraph
           >
             Mon nom est Bastien Martinelli. Je suis développeur front-end,
-            passionné de JavaScript, Vétéran React.
+            passionné de JavaScript et Vétéran React. Bienvenu sur mon blog.
+            Nous allons parler JS et conception d'applications web !
           </Typography>
           <Grid container justify="center">
             <img className={classes.img} src={webDev} alt="web-dev" />
