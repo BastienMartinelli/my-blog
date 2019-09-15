@@ -36,7 +36,7 @@ export default function() {
             color="textPrimary"
             gutterBottom
           >
-            Hey!
+            Bienvenue!
           </Typography>
           <Typography
             variant="h5"
