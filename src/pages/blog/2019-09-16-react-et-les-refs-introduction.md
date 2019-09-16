@@ -5,8 +5,8 @@ date: 2019-09-16T09:46:26.473Z
 description: >-
   On ne va pas se mentir, les refs ne sont clairement pas la partie la plus
   simple de React. Elle peuvent s'avérer un allié redoutable si correctement
-  maîtrisés. Dans le cas contraire elle ne seront qu'une source de bug et de
-  complexité inutile. Essayons de démystifier tous cela.
+  maîtrisés. Mais dans le cas contraire elle ne seront qu'une source de bug et
+  de complexité inutile. Essayons de démystifier tous cela.
 featuredpost: true
 featuredimage: /img/105j5q.jpg
 tags:
@@ -14,33 +14,38 @@ tags:
 ---
 ## Commençons par les bases
 
-Dans ce premier post nous allons prendre le problème par la base, et voir ce qu'est une ref en React. Tout cela pourra paraître très sommaire, et de nombreux éléments de ce post se retrouverons dans [la doc de React](https://fr.reactjs.org/docs/refs-and-the-dom.html) (assez complète sur le sujet).
-Ce post servira cependant d'introductions avant un second écrit plus terre à terre sur les pièges à éviter lors de l'utilisation des refs dans nos développement.
+*Dans ce premier post nous allons prendre le problème par la base, et voir ce qu'est une ref en React. Tout cela pourra paraître très sommaire, et de nombreux éléments de ce post sont issus de [la doc de React](https://fr.reactjs.org/docs/refs-and-the-dom.html) (assez complète sur le sujet).
+Ce post servira cependant d'introductions avant un second, plus terre à terre, sur les pièges à éviter lors de l'utilisation des refs dans nos développement.*
 
-## Qu'est-ce qu'une ref ?
+React est une librairie permettant de créer des interfaces utilisateur de manière déclarative. Nous décrivons notre IHM en fonction des données d'entrée de notre application (saisie utilisateur, retour de web service...) et React se charge du sale boulot, à savoir manipuler le DOM pour créer ladite interface.
 
-On va passer assez vite sur la définition d'une ref. La documentation de React est assez claire à ce sujet:
+Il arrive cependant que nous ayons besoin de manipuler nous même un élément du DOM, que ce soit pour mettre le focus sur un champ, ou encore mesurer la taille d'une div. C'est la que les choses ce compliquent. Comment modifier de manière impérative notre IHM décrite de manière déclarative ?
+
+## Les refs à la rescousse
+
+C'est là que les refs entrent en scène. On va passer assez vite sur la définition d'une ref. La documentation de React est assez claire à ce sujet:
 
 > Les refs fournissent un moyen d’accéder aux nœuds du DOM ou éléments React créés dans la méthode de rendu.
 
-Imaginons que j'ai un composant qui fait le rendu d'une div, je peux mettre une ref sur cette div pour accéder et manipuler directement l'élément du DOM. Si je fais de même avec un composant enfant, la ref me permettra d'accéder à l'instance de ce dernier (si c'est un composant classe) et d'appeler ses méthodes par exemple.
+C'est exactement ce dont nous avons besoin! Imaginons que j'ai un composant qui fait le rendu d'une div, je peux mettre une ref sur cette div pour accéder et manipuler directement l'élément du DOM. Si je fais de même avec un composant enfant, la ref me permettra d'accéder à l'instance de ce dernier (si c'est un composant classe) et d'appeler par exemple ses méthodes.
 
 ## Les refs en dernier recours
 
-Les refs permettent donc de contrôler un élément de manière impérative. C'est puissant, certe, mais cela va à l'encontre de la philosophie même de React, et peut ajouter une certaine complexité à notre composant. On préférera donc une approche déclarative, ou le rendu de notre composant sera directement déterminé en fonction de ses props.
+Cependant, elles sont à utiliser avec parcimonie. Comme nous l'avons évoqué, avec les refs nous pouvons rapidement nous écarter de la philosophie de React, et retomber dans une approche purement impérative. Et bien que certains problème exigent l'utilisation de ref, celles-ci peuvent tout de même être source de bug, ou simplement de complexité dans notre application.
 
-Il y a tout de même des cas ou les refs s'avèrent incontournable. Par exemple pour contrôler le focus d'un élément (très utile pour implémenter une navigation clavier), ou mesurer la taille d'un nœud du DOM.
+Par conséquent on choisira toujours l'approche déclarative. En d'autres termes, si un problème peut être réglé avec des props, utilisez des props. On préférera par exemple une prop **open** pour gérer l'ouverture d'un composant plutôt que d'exposer une méthode **open** accessible via une ref sur ce dernier.
 
-Néanmoins, si un problème peut être réglé avec des props, utiliser des props. On préférera par exemple une prop **open** pour gérer l'ouverture d'un composant plutôt que d'exposer une méthode **open** accessible via une ref sur ce dernier.
+## Créer une ref
 
-## Les différents types de refs
+Il existe 3 manières de créer une ref en React:
 
-Il existe 3 types de ref en React:
-* Les ref chaîne de caractère
-* les ref objet
-* les ref callback
+* Les refs chaîne de caractère
+* les refs objet
+* les refs callback
 
-### les ref chaine de caractère
+### les refs chaîne de caractère
+
+Il s'agit ici de passer le nom de la ref en chaîne de caractère à la prop ref de mon élément. La ref sera alors accessible via **this.refs**. Cette façon de faire est dépréciée. Si comme moi vous êtes amené à travailler sur un projet avec du vécu qui est plein de ce genre de ref, il est temps de les migrer. Non sans rire, la doc stipule très clairement qu'elles seront retiré de React dans une version future...
 
 ```jsx
 class MonComposant extends Component {
@@ -56,11 +61,9 @@ class MonComposant extends Component {
 }
 ```
 
-Il s'agit ici de passer une chaîne de caractère à la prop ref de mon élément. La ref sera alors accessible via **this.refs**. Cette façon de faire est dépréciée. Si comme moi vous êtes amené à travailler sur un projet avec du vécu qui est plein de ce genre de ref, il est temps de les migrer. Non sans rire, la doc stipule bien qu'elles seront retiré de React dans une version future...
-
 ### les refs objet
 
-Les refs objet sont aujourd'hui très courante. Il est possible d'en créer via la méthode **createRef** ou le hook **useRef**. Dans les deux cas, cela nous retournera un objet contenant une unique propriété **current**. C'est sur cette propriété que React va greffer notre noeud DOM au montage du composant. Il suffira ensuite de passer cet objet à la prop **ref** de l'élément cible.
+Les refs objet sont aujourd'hui très courante. Il est possible d'en créer via la méthode **createRef** ou le hook **useRef**. Dans les deux cas, cela nous retournera un objet contenant une unique propriété **current**. C'est sur cette propriété que React va greffer notre noeud DOM au montage du composant. Pour cela il nous suffira de passer cet objet à la prop **ref** de l'élément cible.
 
 * Dans un composant class
 
@@ -73,7 +76,8 @@ class MonComposant extends Component {
   }
 
   doSomething() {
-    // utilisation de la ref pour focus l’élément
+    // utilisation de la ref pour
+    // focus l’élément
     if (this.myRef.current) {
       this.myRef.current.focus();
     }
@@ -82,7 +86,10 @@ class MonComposant extends Component {
   render() {
     // on passe la ref objet à l'input
     return (
-      <input type="text" ref={this.myRef} />
+      <input
+        type="text"
+        ref={this.myRef}
+      />
     )
   }
 }
@@ -96,7 +103,8 @@ function MonComposant() {
   const myRef= React.useRef();
 
   function doSomething() {
-    // utilisation de la ref pour focus l'élement
+    // utilisation de la ref pour
+    // focus l'élement
     if (myRef.current) {
       myRef.current.focus();
     }
@@ -104,15 +112,18 @@ function MonComposant() {
 
   // on passe la ref objet à l'input
   return (
-    <input type="text" ref={myRef} />
+    <input
+      type="text"
+      ref={myRef}
+    />
   )
 }
 ```
 
 ### les refs callback
 
-Pour terminer, il faut savoir que la prop **ref** accepte également une fonction de callback. Au montage du composant React va appeler cette fonction et passer en paramètre le nœud du DOM. A nous par la suite dans faire ce que bon nous semble.
-Cette façon de faire permet d'avoir un contrôle plus fin sur l'affectation de cette ref.
+Pour terminer, il faut savoir que la prop **ref** accepte également une fonction de callback. Au montage du composant React va appeler cette fonction et passer en paramètre le nœud du DOM. A nous ensuite d'en faire bon usage.
+Cette façon de faire permet asinsi d'avoir un contrôle plus fin sur l'affectation de cette ref.
 
 * Dans un composant class
 
@@ -125,7 +136,8 @@ class MonComposant extends Component {
   }
 
   doSomething() {
-    // utilisation de la ref pour focus l’élément
+    // utilisation de la ref pour
+    // focus l’élément
     if (this.myRef) {
       this.myRef.focus();
     }
@@ -139,7 +151,10 @@ class MonComposant extends Component {
   render() {
     // on passe le callback à l'élément
     return (
-      <input type="text" ref={this.setMyRef} />
+      <input
+        type="text"
+        ref={this.setMyRef}
+      />
     )
   }
 ```
@@ -147,13 +162,13 @@ class MonComposant extends Component {
 * Dans un composant fonction
 
 ```jsx
-
 function MonComposant() {
   // création de ma ref et de son setter
   const [myRef, setMyRef] = React.useState(null)
 
   function doSomething() {
-    // utilisation de la ref pour focus l’élément
+    // utilisation de la ref pour
+    // focus l’élément
     if (myRef) {
       myRef.focus();
     }
@@ -161,13 +176,14 @@ function MonComposant() {
 
   // on passe le callback à l'élément
   return (
-    <input type="text" ref={setMyRef} />
+    <input
+        type="text"
+        ref={setMyRef}
+    />
   )
 }
 ```
 
 ## ...Affaire à suivre
 
-Voilà pour la petite introduction sur les refs. Dans le prochain post nous allons essayer d'aller un peut plus en avant en parlant des pièges à éviter lors de l'utilisation des refs dans des cas concrets.
-
-
+On sait maintenant ce qu'est une ref, à quel besoin les refs répondent, et comment créer une ref. Cela devrait laisser encore quelques questions. Nous essairons d'y répondre dans un prochain post sur les pièges à éviter lors de l'utilisation des refs dans des cas concrets.
