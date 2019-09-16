@@ -10,7 +10,7 @@ tags:
   - tasting
   - test
 ---
-![flavor wheel](/img/flavor_wheel.jpg)
+![flavor wheel](/img/logo.svg)
 
 Coucou
 
