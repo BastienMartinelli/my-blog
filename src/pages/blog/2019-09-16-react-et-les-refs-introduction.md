@@ -19,7 +19,7 @@ Ce post servira cependant d'introductions avant un second, plus terre à terre, 
 
 React est une librairie permettant de créer des interfaces utilisateur de manière déclarative. Nous décrivons notre IHM en fonction des données d'entrée de notre application (saisie utilisateur, retour de web service...) et React se charge du sale boulot, à savoir manipuler le DOM pour créer ladite interface.
 
-Il arrive cependant que nous ayons besoin de manipuler nous-même un élément du DOM, que ce soit pour mettre le focus sur un champ, ou encore mesurer la taille d'une div. C'est là que les choses se compliquent. Comment modifier de manière impérative notre IHM décrite de manière déclarative ?
+Il arrive cependant que nous ayons besoin de manipuler nous-même un élément du DOM, que ce soit pour mettre le focus sur un champ, ou encore mesurer la taille d'une div. Là, les choses se compliquent. Comment modifier de manière impérative notre IHM décrite de manière déclarative ?
 
 ## Les refs à la rescousse
 
@@ -183,6 +183,21 @@ function MonComposant() {
   )
 }
 ```
+
+## Pour résumer
+
+* Les refs permettent d'accéder/manipuler un élément ou composant de manière impérative
+
+* Ne pas abuser des refs, préférer une approche déclarative
+
+* Une ref sur un élément html retourne le noeud du DOM
+
+* Une ref sur un composant class retourne l'instance du composant
+* Il existe 3 types de refs
+  * Les refs chaîne de caractère sont dépréciés
+  * Les refs Objets créées via **createRef** ou **useRef**
+  * Les refs callback
+
 
 ## ...Affaire à suivre
 
