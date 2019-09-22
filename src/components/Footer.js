@@ -40,6 +40,8 @@ function Footer() {
             size="medium"
             className={classes.iconButton}
             aria-label="linkedin"
+            href="https://fr.linkedin.com/in/bastien-martinelli-0209b280"
+            target="_blank"
           >
             <SvgIcon fontSize="large">
               <path
@@ -52,6 +54,8 @@ function Footer() {
             size="medium"
             className={classes.iconButton}
             aria-label="github"
+            href="https://github.com/BastienMartinelli"
+            target="_blank"
           >
             <SvgIcon fontSize="large">
               <path

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { kebabCase } from "lodash";
 import Helmet from "react-helmet";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import Fab from "@material-ui/core/Fab";
 import {
   Container,
@@ -15,11 +15,11 @@ import {
   Zoom
 } from "@material-ui/core";
 import makeStyles from "@material-ui/styles/makeStyles";
-import Chip from "@material-ui/core/Chip";
 
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import AdapaterLink from "../components/AdapaterLink";
+import Tag from "../components/Tag";
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -30,11 +30,12 @@ const useStyles = makeStyles(theme => ({
   title: {
     marginBottom: 24
   },
+  tagsTitle: {
+    marginTop: 12,
+    marginBottom: 12
+  },
   subTitle: {
     marginBottom: 48
-  },
-  chip: {
-    margin: theme.spacing(1)
   },
   fab: {
     position: "fixed",
@@ -98,17 +99,16 @@ export const BlogPostTemplate = ({
             {tags && tags.length && (
               <div style={{ marginTop: `4rem` }}>
                 <Divider />
-                <h4>Tags</h4>
+                <Typography className={classes.tagsTitle}>Tags</Typography>
                 {tags.map(tag => (
-                  <Chip
-                    key={tag}
-                    component={AdapaterLink}
-                    onClick={() => {}}
-                    to={`/tags/${kebabCase(tag)}/`}
-                    label={tag}
-                    className={classes.chip}
-                  />
+                  <Tag key={tag} to={`/tags/${kebabCase(tag)}/`} label={tag} />
                 ))}
+                <Tag
+                  to="/tags/"
+                  label="Voir tous les tags"
+                  variant="outlined"
+                  color="primary"
+                />
               </div>
             )}
           </Paper>

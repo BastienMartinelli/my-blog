@@ -5,15 +5,11 @@ import { graphql } from "gatsby";
 import Layout from "../../components/Layout";
 import PageLayout from "../../components/PageLayout";
 import { Typography } from "@material-ui/core";
-import Chip from "@material-ui/core/Chip";
 import makeStyles from "@material-ui/styles/makeStyles";
 
-import AdapterLink from "../../components/AdapaterLink";
+import Tag from "../../components/Tag";
 
 const useStyles = makeStyles({
-  tag: {
-    marginRight: 4
-  },
   title: {
     marginBottom: 16
   }
@@ -37,12 +33,10 @@ const TagsPage = ({
           Tous les tags
         </Typography>
         {group.map(tag => (
-          <Chip
-            className={classes.tag}
-            onClick={() => {}}
+          <Tag
             key={tag.fieldValue}
-            label={`${tag.fieldValue} (${tag.totalCount})`}
-            component={AdapterLink}
+            label={tag.fieldValue}
+            count={tag.totalCount}
             to={`/tags/${kebabCase(tag.fieldValue)}/`}
           />
         ))}
