@@ -26,7 +26,7 @@ const TagsPage = ({
   const classes = useStyles();
 
   return (
-    <Layout>
+    <Layout pageName="tags">
       <Helmet title={`Tags | ${title}`} />
       <PageLayout title="Tags">
         <Typography className={classes.title} component="h1" variant="h4">

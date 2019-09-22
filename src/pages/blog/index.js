@@ -18,7 +18,7 @@ export default function BlogIndexPage() {
   const classes = useStyles();
 
   return (
-    <Layout>
+    <Layout pageName="blog">
       <PageLayout title="Derniers Posts" noCard>
         <BlogRoll />
       </PageLayout>

@@ -49,7 +49,7 @@ export default function Index() {
   };
 
   return (
-    <Layout>
+    <Layout pageName="contact">
       <PageLayout title="Me Contacter">
         <form
           name="contact"

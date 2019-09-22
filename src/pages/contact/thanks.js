@@ -16,7 +16,7 @@ function ThanksPage() {
   const classes = useStyles();
 
   return (
-    <Layout>
+    <Layout pageName="thanks">
       <Container maxWidth="md">
         <PageLayout>
           <Typography

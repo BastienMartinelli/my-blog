@@ -38,16 +38,18 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const TemplateWrapper = ({ children }) => {
+const TemplateWrapper = ({ children, pageName }) => {
   const { title, description } = useSiteMetadata();
   const classes = useStyles();
+
+  const pageTitle = pageName ? `${title} | ${pageName}` : title;
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Helmet>
-        <html lang="en" />
-        <title>{title}</title>
+        <html lang="fr" />
+        <title>{pageTitle}</title>
         <meta name="description" content={description} />
         <link
           href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"

@@ -19,7 +19,7 @@ function NotFoundPage() {
   const classes = useStyles();
 
   return (
-    <Layout>
+    <Layout pageName="404">
       <Container maxWidth="sm">
         <Grid container justify="center">
           <Paper className={classes.paper}>
