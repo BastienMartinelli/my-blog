@@ -45,7 +45,7 @@ export default function() {
             paragraph
           >
             Mon nom est Bastien Martinelli. Je suis développeur front-end,
-            passionné de JavaScript et React. Bienvenu sur mon blog. Nous allons
+            passionné de JavaScript et React. Bienvenue sur mon blog. Nous allons
             parler JS et conception d'applications web !
           </Typography>
           <Grid container justify="center">
