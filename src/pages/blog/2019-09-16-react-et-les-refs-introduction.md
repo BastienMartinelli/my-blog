@@ -5,8 +5,8 @@ date: 2019-09-16T09:46:26.473Z
 description: >-
   On ne va pas se mentir, les refs ne sont clairement pas la partie la plus
   simple de React. Elles peuvent s'avérer un allié redoutable si correctement
-  maîtrisé. Mais dans le cas contraire, elles ne seront qu'une source de bug et
-  de complexité inutile. Essayons de démystifier tout cela.
+  maîtrisées. Mais dans le cas contraire, elles ne seront qu'une source de bug
+  et de complexité inutile. Essayons de démystifier tout cela.
 featuredpost: true
 featuredimage: /img/105j5q.jpg
 tags:
