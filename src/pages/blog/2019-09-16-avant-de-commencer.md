@@ -8,12 +8,12 @@ featuredimage: /img/tt_51.jpg
 tags:
   - divers
 ---
-Cela fait quelque temps que l'idée de me lancer dans la création d'un blog me trotte dans la tête. Ce n'est pas comme si le genre manquait sur internet. Une rapide recherche sur n'importe quel sujet en rapport avec le JS ou React et nous voilà noyé sous un flot de posts de blog plus ou moins précis.
+Cela fait quelque temps que l'idée de me lancer dans la création d'un blog me trotte dans la tête. Ce n'est pas comme si le genre manquait sur internet. Une rapide recherche sur n'importe quel sujet en rapport avec le JS ou React et nous voilà noyés sous un flot de posts de blog plus ou moins précis.
 Malgré tout, force est de d'admettre que l’exercice possède quelques avantages. J'espère ainsi pouvoir, à terme:
 
 ### Apprendre à mieux synthétiser
 
-On ne connais pas réellement un sujet tant que l'on est pas capable de l'expliquer clairement et simplement à un néophyte. 
+On ne connait pas réellement un sujet tant que l'on n'est pas capable de l'expliquer clairement et simplement à un néophyte. 
 
 ### Garder une trace de mes réflexions et veilles techno
 
